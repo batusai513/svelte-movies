@@ -1,0 +1,50 @@
+{count}
+<button on:click="decrement(event)">-</button>
+<button on:click="increment(event)">+</button>
+<button on:click="destroy()">🤯</button>
+
+<script>
+  export default {
+    data() {
+      return {
+        count: 0
+      }
+    },
+    methods: {
+      increment(event) {
+        event.preventDefault();
+        this.set({count: this.get().count + 1 })
+      },
+      decrement() {
+        event.preventDefault();
+        this.set({ count: this.get().count - 1})
+      }
+    }
+  }
+  /*
+	export default {
+		events: {
+			longpress(node, callback) {
+				function onmousedown(event) {
+					const timeout = setTimeout(() => callback(event), 1000);
+
+					function cancel() {
+						clearTimeout(timeout);
+						node.removeEventListener('mouseup', cancel, false);
+					}
+
+					node.addEventListener('mouseup', cancel, false);
+				}
+
+				node.addEventListener('mousedown', onmousedown, false);
+
+				return {
+					destroy() {
+						node.removeEventListener('mousedown', onmousedown, false);
+					}
+				};
+			}
+		}
+	};
+  */
+</script>

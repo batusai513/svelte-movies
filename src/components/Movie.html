@@ -1,0 +1,28 @@
+<div>
+	<h1>{movieTitle}</h1>
+	<img src="{imgUrl}" alt="{movieTitle}">
+</div>
+
+<style>
+  div {
+    flex: 1;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  img {
+    max-width: 100%;
+  }
+</style>
+
+<script>
+  export default {
+    data() {
+      return {};
+    },
+    computed: {
+      movieTitle: ({ title }) => console.warn(title) || title,
+      imgUrl: ({ url }) => `http://image.tmdb.org/t/p/w500${url}`
+    }
+  };
+</script>
